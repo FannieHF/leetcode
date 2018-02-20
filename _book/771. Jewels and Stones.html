@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>771. Jewels and Stones</title>
+
+    <meta charset="UTF-8"/>
+
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+
+    <meta name="HandheldFriendly" content="true"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+
+    <link href="./asset/farbox/basic.css" type="text/css" rel="stylesheet"/>
+    <link href="./asset/farbox/main.css" type="text/css" rel="stylesheet"/>
+
+    <style type="text/css">
+        
+            span.md_line{margin-bottom:0.5em; display:block; line-height:1.89}
+            .md_line br{ display: none;}
+            
+    </style>
+
+    <script>
+        var flowchat_options = {
+            'x': 0, 'y': 0, 'line-width': 1, 'line-length': 50, 'text-margin': 10, 'font-size': 13,
+            'font-color': '#3c3c3c', 'line-color': '#666666', 'element-color': '#666666', 'fill': 'transparent',
+            'yes-text': 'yes', 'no-text': 'no', 'arrow-end': 'block', 'class': 'flowchart', 'scale': 1,
+            'symbols': { 'start': {}, 'end': {}, 'condition': {}, 'inputoutput': {}, 'operation': {}, 'subroutine': {}}
+        }
+    </script>
+    <script type="text/javascript" src="./asset/other/raphael-min.js"></script>
+    <script type="text/javascript" src="./asset/other/flowchart.js"></script>
+    <script type="text/javascript" src="./asset/other/echarts.min.js"></script>
+
+
+</head>
+
+<body>
+    
+        <a href="./index.html" id="go_to_home"> &lt; home </a>
+    
+    <div id="sidebar">
+        <ul id="sidebar_body">
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./461. Hamming Distance.html" class="">461. Hamming Distance</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./595. Big Countries.html" class="">595. Big Countries</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./771. Jewels and Stones.html" class="selected">771. Jewels and Stones</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./README.html" class="">leetcode</a>
+                </li>
+            
+
+            
+        
+        </ul>
+    </div>
+
+    <div id="main">
+        <div class="content_body">
+            <h1 class="title"> 771. Jewels and Stones </h1>
+            <div class="doc_post"> <p class="md_block">
+    <span class="md_line">ONE. submission 1 [accepted] [O(js)]</span>
+</p>
+
+<div class="codehilite code_lang_python  highlight"><pre><span></span><span class="k">def</span> <span class="nf">numJewelsInStones</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">S</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :type J: str</span>
+<span class="sd">    :type S: str</span>
+<span class="sd">    :rtype: int</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">S</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">J</span><span class="p">:</span>
+            <span class="nb">sum</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="nb">sum</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line">TWO. one-line python [O(j*s)]</span>
+</p>
+
+<div class="codehilite code_lang_python  highlight"><pre><span></span><span class="k">def</span> <span class="nf">numJewelsInStones</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">S</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">s</span> <span class="ow">in</span> <span class="n">J</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">S</span><span class="p">)</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line">TWO. one-line python [O(j*s)]</span>
+</p>
+
+<div class="codehilite code_lang_python  highlight"><pre><span></span><span class="k">def</span> <span class="nf">numJewelsInStones</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">S</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">s</span> <span class="ow">in</span> <span class="n">J</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">S</span><span class="p">)</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line">THREE. map [O(m+n)]</span>
+</p>
+
+<div class="codehilite code_lang_python  highlight"><pre><span></span><span class="k">def</span> <span class="nf">numJewelsInStones</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">S</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">J</span><span class="o">.</span><span class="n">count</span><span class="p">,</span> <span class="n">S</span><span class="p">))</span>
+</pre></div>
+
+<!--block_code_end--><div class="codehilite code_lang_python  highlight"><pre><span></span><span class="k">def</span> <span class="nf">numJewelsInStones</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">S</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">S</span><span class="o">.</span><span class="n">count</span><span class="p">,</span> <span class="n">J</span><span class="p">))</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block md_has_block_below md_has_block_below_ul">
+    <span class="md_line">FOUR. regular expression </span>
+</p>
+
+
+<ul>
+<li>[^xyz], matches everything that is not xyz. </li>
+<li>This code replace everything in S that is not a jewel with an empty string. What is left is a string with only characters in J, so we count the number of remaining characters.</li>
+</ul>
+<div class="codehilite code_lang_java  highlight"><pre><span></span><span class="kd">public</span> <span class="kt">int</span> <span class="nf">numJewelsInStones</span><span class="o">(</span><span class="n">String</span> <span class="n">J</span><span class="o">,</span> <span class="n">String</span> <span class="n">S</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">S</span><span class="o">.</span><span class="na">replaceAll</span><span class="o">(</span><span class="s">&quot;[^&quot;</span> <span class="o">+</span> <span class="n">J</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="o">,</span> <span class="s">&quot;&quot;</span><span class="o">).</span><span class="na">length</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></div>
+
+<!--block_code_end--> </div>
+        </div>
+
+    </div>
+
+
+
+
+
+<script>
+    // auto focus for menu
+    window.onload = function(){
+        var sidebar = document.getElementById('sidebar');
+        var current = document.getElementsByClassName('selected')[0];
+        if (current && sidebar){
+            sidebar.scrollTop = current.offsetTop - sidebar.clientHeight/2 + 100
+        }
+    };
+</script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>461. Hamming Distance</title>
+
+    <meta charset="UTF-8"/>
+
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+
+    <meta name="HandheldFriendly" content="true"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+
+    <link href="./asset/farbox/basic.css" type="text/css" rel="stylesheet"/>
+    <link href="./asset/farbox/main.css" type="text/css" rel="stylesheet"/>
+
+    <style type="text/css">
+        
+            span.md_line{margin-bottom:0.5em; display:block; line-height:1.89}
+            .md_line br{ display: none;}
+            
+    </style>
+
+    <script>
+        var flowchat_options = {
+            'x': 0, 'y': 0, 'line-width': 1, 'line-length': 50, 'text-margin': 10, 'font-size': 13,
+            'font-color': '#3c3c3c', 'line-color': '#666666', 'element-color': '#666666', 'fill': 'transparent',
+            'yes-text': 'yes', 'no-text': 'no', 'arrow-end': 'block', 'class': 'flowchart', 'scale': 1,
+            'symbols': { 'start': {}, 'end': {}, 'condition': {}, 'inputoutput': {}, 'operation': {}, 'subroutine': {}}
+        }
+    </script>
+    <script type="text/javascript" src="./asset/other/raphael-min.js"></script>
+    <script type="text/javascript" src="./asset/other/flowchart.js"></script>
+    <script type="text/javascript" src="./asset/other/echarts.min.js"></script>
+
+
+</head>
+
+<body>
+    
+        <a href="./index.html" id="go_to_home"> &lt; home </a>
+    
+    <div id="sidebar">
+        <ul id="sidebar_body">
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./461. Hamming Distance.html" class="selected">461. Hamming Distance</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./595. Big Countries.html" class="">595. Big Countries</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./771. Jewels and Stones.html" class="">771. Jewels and Stones</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./README.html" class="">leetcode</a>
+                </li>
+            
+
+            
+        
+        </ul>
+    </div>
+
+    <div id="main">
+        <div class="content_body">
+            <h1 class="title"> 461. Hamming Distance </h1>
+            <div class="doc_post"> <p class="md_block">
+    <span class="md_line md_line_dom_embed"><strong>x &lt;&lt; y</strong><br /></span>
+    <span class="md_line">Returns x with the bits shifted to the left by y places (and new bits on the right-hand-side are zeros). This is the same as multiplying x by 2<strong>y.<br /></span>
+    <span class="md_line md_line_dom_embed"><strong>x &gt;&gt; y</strong><br /></span>
+    <span class="md_line">Returns x with the bits shifted to the right by y places. This is the same as //&#39;ing x by 2</strong>y.<br /></span>
+    <span class="md_line md_line_dom_embed"><strong>x &amp; y</strong><br /></span>
+    <span class="md_line">Does a &quot;bitwise and&quot;. Each bit of the output is 1 if the corresponding bit of x AND of y is 1, otherwise it&#39;s 0.<br /></span>
+    <span class="md_line md_line_dom_embed"><strong>x | y</strong><br /></span>
+    <span class="md_line">Does a &quot;bitwise or&quot;. Each bit of the output is 0 if the corresponding bit of x AND of y is 0, otherwise it&#39;s 1.<br /></span>
+    <span class="md_line md_line_dom_embed"><strong>~ x</strong><br /></span>
+    <span class="md_line">Returns the complement of x - the number you get by switching each 1 for a 0 and each 0 for a 1. This is the same as <strong>-x - 1</strong>.<br /></span>
+    <span class="md_line md_line_dom_embed"><strong>x ^ y</strong><br /></span>
+    <span class="md_line">Does a &quot;bitwise EXCLUSIVE OR&quot;. Each bit of the output is the same as the corresponding bit in x if that bit in y is 0, and it&#39;s the complement of the bit in x if that bit in y is 1.</span>
+</p>
+
+<div class="codehilite code_lang_python  highlight"><pre><span></span><span class="nb">bin</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<span class="c1"># 0b11111111</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#01</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1">#11</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="n">y</span><span class="p">)</span> <span class="c1">#2</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">&amp;</span><span class="n">y</span><span class="p">)</span> <span class="c1">#1</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">|</span><span class="n">y</span><span class="p">)</span>  <span class="c1">#3</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#01</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1">#10</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1">#1</span>
+<span class="k">print</span> <span class="p">(</span><span class="o">~</span><span class="n">x</span><span class="p">)</span> <span class="c1">#-2</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;bin(-x)&quot;</span><span class="p">,</span><span class="nb">bin</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span> <span class="c1">#-0b1</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">x</span><span class="o">&amp;</span><span class="n">y</span><span class="p">)</span> <span class="c1">#0</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;(bin(x&amp;y))&quot;</span><span class="p">,</span><span class="nb">bin</span><span class="p">(</span><span class="n">x</span><span class="o">&amp;</span><span class="n">y</span><span class="p">))</span> <span class="c1">#0b0</span>
+<span class="k">print</span> <span class="p">(</span><span class="o">~</span><span class="p">(</span><span class="n">x</span><span class="o">&amp;</span><span class="n">y</span><span class="p">))</span> <span class="c1">#-1</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;bin(~(x&amp;y))&quot;</span><span class="p">,</span><span class="nb">bin</span><span class="p">(</span><span class="o">~</span><span class="p">(</span><span class="n">x</span><span class="o">&amp;</span><span class="n">y</span><span class="p">)))</span> <span class="c1">#-0b1</span>
+<span class="k">print</span> <span class="p">(</span><span class="o">~</span><span class="n">x</span><span class="o">&amp;</span><span class="n">y</span><span class="p">)</span> <span class="c1">#2</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;bin(~x&amp;y)&quot;</span><span class="p">,</span><span class="nb">bin</span><span class="p">(</span><span class="o">~</span><span class="n">x</span><span class="o">&amp;</span><span class="n">y</span><span class="p">))</span> <span class="c1">#0b10</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#01</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1">#11</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="c1">#3</span>
+<span class="k">print</span> <span class="p">(</span><span class="o">~</span><span class="n">y</span><span class="p">)</span> <span class="c1">#-4</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;bin(-y)&quot;</span><span class="p">,</span><span class="nb">bin</span><span class="p">(</span><span class="o">-</span><span class="n">y</span><span class="p">))</span> <span class="c1">#-0b11</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">x</span><span class="o">&amp;</span><span class="n">y</span><span class="p">)</span> <span class="c1">#1</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;(bin(x&amp;y))&quot;</span><span class="p">,</span><span class="nb">bin</span><span class="p">(</span><span class="n">x</span><span class="o">&amp;</span><span class="n">y</span><span class="p">))</span> <span class="c1">#0b1</span>
+<span class="k">print</span> <span class="p">(</span><span class="o">~</span><span class="p">(</span><span class="n">x</span><span class="o">&amp;</span><span class="n">y</span><span class="p">))</span> <span class="c1">#-2</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;bin(~(x&amp;y))&quot;</span><span class="p">,</span><span class="nb">bin</span><span class="p">(</span><span class="o">~</span><span class="p">(</span><span class="n">x</span><span class="o">&amp;</span><span class="n">y</span><span class="p">)))</span> <span class="c1">#-0b10</span>
+<span class="k">print</span> <span class="p">(</span><span class="o">~</span><span class="n">x</span><span class="o">&amp;</span><span class="n">y</span><span class="p">)</span> <span class="c1">#2</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;bin(y)&quot;</span><span class="p">,</span><span class="nb">bin</span><span class="p">(</span><span class="n">y</span><span class="p">))</span> <span class="c1">#0b11</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;bin(-x)&quot;</span><span class="p">,</span><span class="nb">bin</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span> <span class="c1">#-0b1</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;bin(~x&amp;y)&quot;</span><span class="p">,</span><span class="nb">bin</span><span class="p">(</span><span class="o">~</span><span class="n">x</span><span class="o">&amp;</span><span class="n">y</span><span class="p">))</span> <span class="c1">#0b10</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="c1">#0b11001</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="mi">5</span><span class="p">))</span> <span class="c1">#0b1100100000</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">))</span> <span class="c1">#0b1100</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line">—————————————————————————————————</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line">ONE. number</span>
+</p>
+
+<div class="codehilite code_lang_python  highlight"><pre><span></span> <span class="k">def</span> <span class="nf">hammingDistance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">diff</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">x</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">!=</span> <span class="p">(</span><span class="n">y</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)):</span>
+            <span class="n">diff</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="n">y</span><span class="p">):</span>
+        <span class="n">diff</span> <span class="o">+=</span> <span class="mi">1</span>  
+
+    <span class="k">return</span> <span class="n">diff</span>
+</pre></div>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line">TWO. built-in python function</span>
+</p>
+
+<div class="codehilite code_lang_python  highlight"><pre><span></span><span class="k">def</span> <span class="nf">hammingDistance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nb">bin</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">)</span>
+</pre></div>
+
+<!--block_code_end--> </div>
+        </div>
+
+    </div>
+
+
+
+
+
+<script>
+    // auto focus for menu
+    window.onload = function(){
+        var sidebar = document.getElementById('sidebar');
+        var current = document.getElementsByClassName('selected')[0];
+        if (current && sidebar){
+            sidebar.scrollTop = current.offsetTop - sidebar.clientHeight/2 + 100
+        }
+    };
+</script>
+
+
+
+
+</body>
+
+</html>
