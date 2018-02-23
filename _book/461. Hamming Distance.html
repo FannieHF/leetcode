@@ -54,6 +54,19 @@
 
             
                 <li class="level_1 file">
+                    <a href="./226. Invert Binary Tree.html" class="">226. Invert Binary Tree</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
                     <a href="./461. Hamming Distance.html" class="selected">461. Hamming Distance</a>
                 </li>
             
@@ -67,7 +80,111 @@
 
             
                 <li class="level_1 file">
+                    <a href="./476. Number Complement.html" class="">476. Number Complement</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./500. Keyboard Row.html" class="">500. Keyboard Row</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./561. Array Partition I.html" class="">561. Array Partition I</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
                     <a href="./595. Big Countries.html" class="">595. Big Countries</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./617. Merge Two Binary Trees.html" class="">617. Merge Two Binary Trees</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./620. Not Boring Movies.html" class="">620. Not Boring Movies</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./627. Swap Salary.html" class="">627. Swap Salary</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./657. Judge Route Circle.html" class="">657. Judge Route Circle</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./728. Self Dividing Numbers.html" class="">728. Self Dividing Numbers</a>
                 </li>
             
 
@@ -105,7 +222,9 @@
     <div id="main">
         <div class="content_body">
             <h1 class="title"> 461. Hamming Distance </h1>
-            <div class="doc_post"> <p class="md_block">
+            <div class="doc_post"> <h1 id="toc_0">bitwise</h1>
+
+<p class="md_block">
     <span class="md_line md_line_dom_embed"><strong>x &lt;&lt; y</strong><br /></span>
     <span class="md_line">Returns x with the bits shifted to the left by y places (and new bits on the right-hand-side are zeros). This is the same as multiplying x by 2<strong>y.<br /></span>
     <span class="md_line md_line_dom_embed"><strong>x &gt;&gt; y</strong><br /></span>
@@ -162,16 +281,41 @@
 </pre></div>
 
 <!--block_code_end-->
+<hr>
+
+<h1 id="toc_1"><strong>~</strong> in Python</h1>
+
 <p class="md_block">
-    <span class="md_line">—————————————————————————————————</span>
+    <span class="md_line">The problem with using <strong>~</strong> in Python, is that it works with signed integers. This is also the only way that really makes sense unless you limit yourself to a particular number of bits. It will work ok with bitwise math, but it can make it hard to interpret the intermediate results.</span>
 </p>
 
 
 <p class="md_block">
-    <span class="md_line">ONE. number</span>
+    <span class="md_line">For 4 bit logic, you should just subtract from 0b1111</span>
 </p>
 
-<div class="codehilite code_lang_python  highlight"><pre><span></span> <span class="k">def</span> <span class="nf">hammingDistance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+
+<pre><code>0b1111 - 0b1100  # == 0b0011</code></pre>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line">For 8 bit logic, subtract from 0b11111111 etc.</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line">The general form is</span>
+</p>
+
+
+<pre><code>def bit_not(n, numbits=8):
+    return (1 &lt;&lt; numbits) - 1 - n</code></pre>
+
+<!--block_code_end-->
+<hr>
+
+<h2 id="toc_2">1. number</h2>
+<div class="codehilite code_lang_python  highlight"><pre><span></span><span class="k">def</span> <span class="nf">hammingDistance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="n">diff</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">while</span> <span class="ow">not</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">):</span>
         <span class="k">if</span> <span class="p">((</span><span class="n">x</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">!=</span> <span class="p">(</span><span class="n">y</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)):</span>
@@ -185,12 +329,32 @@
 </pre></div>
 
 <!--block_code_end-->
-<p class="md_block">
-    <span class="md_line">TWO. built-in python function</span>
-</p>
+<h2 id="toc_3">1a. fix number</h2>
+<div class="codehilite code_lang_python  highlight"><pre><span></span> <span class="k">def</span> <span class="nf">hammingDistance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="n">diff</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">x</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">!=</span> <span class="p">(</span><span class="n">y</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)):</span>
+                <span class="n">diff</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">//</span> <span class="mi">2</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="k">return</span> <span class="n">diff</span>
+</pre></div>
 
+<!--block_code_end-->
+<h2 id="toc_4">2. built-in python function</h2>
 <div class="codehilite code_lang_python  highlight"><pre><span></span><span class="k">def</span> <span class="nf">hammingDistance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
     <span class="k">return</span> <span class="nb">bin</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">)</span>
+</pre></div>
+
+<!--block_code_end-->
+<h2 id="toc_5">3. x &amp; (x-1) trick</h2>
+<div class="codehilite code_lang_python  highlight"><pre><span></span><span class="k">def</span> <span class="nf">hammingDistance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">^</span> <span class="n">y</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">x</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">y</span>
 </pre></div>
 
 <!--block_code_end--> </div>

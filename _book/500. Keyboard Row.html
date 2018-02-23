@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>500. Keyboard Row</title>
+
+    <meta charset="UTF-8"/>
+
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+
+    <meta name="HandheldFriendly" content="true"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+
+    <link href="./asset/farbox/basic.css" type="text/css" rel="stylesheet"/>
+    <link href="./asset/farbox/main.css" type="text/css" rel="stylesheet"/>
+
+    <style type="text/css">
+        
+            span.md_line{margin-bottom:0.5em; display:block; line-height:1.89}
+            .md_line br{ display: none;}
+            
+    </style>
+
+    <script>
+        var flowchat_options = {
+            'x': 0, 'y': 0, 'line-width': 1, 'line-length': 50, 'text-margin': 10, 'font-size': 13,
+            'font-color': '#3c3c3c', 'line-color': '#666666', 'element-color': '#666666', 'fill': 'transparent',
+            'yes-text': 'yes', 'no-text': 'no', 'arrow-end': 'block', 'class': 'flowchart', 'scale': 1,
+            'symbols': { 'start': {}, 'end': {}, 'condition': {}, 'inputoutput': {}, 'operation': {}, 'subroutine': {}}
+        }
+    </script>
+    <script type="text/javascript" src="./asset/other/raphael-min.js"></script>
+    <script type="text/javascript" src="./asset/other/flowchart.js"></script>
+    <script type="text/javascript" src="./asset/other/echarts.min.js"></script>
+
+
+</head>
+
+<body>
+    
+        <a href="./index.html" id="go_to_home"> &lt; home </a>
+    
+    <div id="sidebar">
+        <ul id="sidebar_body">
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./226. Invert Binary Tree.html" class="">226. Invert Binary Tree</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./461. Hamming Distance.html" class="">461. Hamming Distance</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./476. Number Complement.html" class="">476. Number Complement</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./500. Keyboard Row.html" class="selected">500. Keyboard Row</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./561. Array Partition I.html" class="">561. Array Partition I</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./595. Big Countries.html" class="">595. Big Countries</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./617. Merge Two Binary Trees.html" class="">617. Merge Two Binary Trees</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./620. Not Boring Movies.html" class="">620. Not Boring Movies</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./627. Swap Salary.html" class="">627. Swap Salary</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./657. Judge Route Circle.html" class="">657. Judge Route Circle</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./728. Self Dividing Numbers.html" class="">728. Self Dividing Numbers</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./771. Jewels and Stones.html" class="">771. Jewels and Stones</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./README.html" class="">leetcode</a>
+                </li>
+            
+
+            
+        
+        </ul>
+    </div>
+
+    <div id="main">
+        <div class="content_body">
+            <h1 class="title"> 500. Keyboard Row </h1>
+            <div class="doc_post"> <h2 id="toc_0">1. every word only contains letters in one set</h2>
+<div class="codehilite code_lang_python  highlight"><pre><span></span><span class="k">def</span> <span class="nf">findWords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">words</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">upper</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;qwertyuiop&quot;</span><span class="p">)</span>
+    <span class="n">middle</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;asdfghjkl&quot;</span><span class="p">)</span>
+    <span class="n">bottom</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;zxcvbnm&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+        <span class="n">upper_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">containsAny</span><span class="p">(</span><span class="n">word</span><span class="p">,</span><span class="n">upper</span><span class="p">)</span>
+        <span class="n">middle_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">containsAny</span><span class="p">(</span><span class="n">word</span><span class="p">,</span><span class="n">middle</span><span class="p">)</span>
+        <span class="n">bottom_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">containsAny</span><span class="p">(</span><span class="n">word</span><span class="p">,</span><span class="n">bottom</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">upper_result</span><span class="o">^</span><span class="n">middle_result</span><span class="o">^</span><span class="n">bottom_result</span><span class="p">)</span> <span class="ow">and</span> 
+        <span class="ow">not</span> <span class="p">(</span><span class="n">upper_result</span><span class="o">&amp;</span><span class="n">middle_result</span><span class="o">&amp;</span><span class="n">bottom_result</span><span class="p">):</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output</span>
+
+<span class="k">def</span> <span class="nf">containsAny</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">word</span><span class="p">,</span><span class="n">line</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">return</span> <span class="bp">False</span>
+</pre></div>
+
+<!--block_code_end-->
+<h2 id="toc_1">2. Union</h2>
+<div class="codehilite code_lang_python  highlight"><pre><span></span><span class="k">def</span> <span class="nf">findWords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">words</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">upper</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;qwertyuiop&quot;</span><span class="p">)</span>
+    <span class="n">middle</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;asdfghjkl&quot;</span><span class="p">)</span>
+    <span class="n">bottom</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;zxcvbnm&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+        <span class="n">wordSet</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">wordSet</span><span class="o">|</span><span class="n">upper</span> <span class="o">==</span> <span class="n">upper</span> <span class="ow">or</span> <span class="n">wordSet</span><span class="o">|</span><span class="n">middle</span> <span class="o">==</span> <span class="n">middle</span> <span class="ow">or</span> <span class="n">wordSet</span><span class="o">|</span><span class="n">bottom</span> <span class="o">==</span> <span class="n">bottom</span><span class="p">:</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output</span>
+</pre></div>
+
+<!--block_code_end-->
+<h2 id="toc_2">3. Intersection</h2>
+<div class="codehilite code_lang_python  highlight"><pre><span></span><span class="k">def</span> <span class="nf">findWords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">words</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">upper</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;qwertyuiop&quot;</span><span class="p">)</span>
+    <span class="n">middle</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;asdfghjkl&quot;</span><span class="p">)</span>
+    <span class="n">bottom</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;zxcvbnm&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+        <span class="n">wordSet</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">wordSet</span><span class="o">&amp;</span><span class="n">upper</span> <span class="o">==</span> <span class="n">wordSet</span> <span class="ow">or</span> <span class="n">wordSet</span><span class="o">&amp;</span><span class="n">middle</span> <span class="o">==</span> <span class="n">wordSet</span> <span class="ow">or</span> <span class="n">wordSet</span><span class="o">&amp;</span><span class="n">bottom</span> <span class="o">==</span> <span class="n">wordSet</span><span class="p">:</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output</span>
+</pre></div>
+
+<!--block_code_end--> </div>
+        </div>
+
+    </div>
+
+
+
+
+
+<script>
+    // auto focus for menu
+    window.onload = function(){
+        var sidebar = document.getElementById('sidebar');
+        var current = document.getElementsByClassName('selected')[0];
+        if (current && sidebar){
+            sidebar.scrollTop = current.offsetTop - sidebar.clientHeight/2 + 100
+        }
+    };
+</script>
+
+
+
+
+</body>
+
+</html>

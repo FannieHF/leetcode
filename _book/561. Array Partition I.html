@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>561. Array Partition I</title>
+
+    <meta charset="UTF-8"/>
+
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+
+    <meta name="HandheldFriendly" content="true"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+
+    <link href="./asset/farbox/basic.css" type="text/css" rel="stylesheet"/>
+    <link href="./asset/farbox/main.css" type="text/css" rel="stylesheet"/>
+
+    <style type="text/css">
+        
+            span.md_line{margin-bottom:0.5em; display:block; line-height:1.89}
+            .md_line br{ display: none;}
+            
+    </style>
+
+    <script>
+        var flowchat_options = {
+            'x': 0, 'y': 0, 'line-width': 1, 'line-length': 50, 'text-margin': 10, 'font-size': 13,
+            'font-color': '#3c3c3c', 'line-color': '#666666', 'element-color': '#666666', 'fill': 'transparent',
+            'yes-text': 'yes', 'no-text': 'no', 'arrow-end': 'block', 'class': 'flowchart', 'scale': 1,
+            'symbols': { 'start': {}, 'end': {}, 'condition': {}, 'inputoutput': {}, 'operation': {}, 'subroutine': {}}
+        }
+    </script>
+    <script type="text/javascript" src="./asset/other/raphael-min.js"></script>
+    <script type="text/javascript" src="./asset/other/flowchart.js"></script>
+    <script type="text/javascript" src="./asset/other/echarts.min.js"></script>
+
+
+</head>
+
+<body>
+    
+        <a href="./index.html" id="go_to_home"> &lt; home </a>
+    
+    <div id="sidebar">
+        <ul id="sidebar_body">
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./226. Invert Binary Tree.html" class="">226. Invert Binary Tree</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./461. Hamming Distance.html" class="">461. Hamming Distance</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./476. Number Complement.html" class="">476. Number Complement</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./500. Keyboard Row.html" class="">500. Keyboard Row</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./561. Array Partition I.html" class="selected">561. Array Partition I</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./595. Big Countries.html" class="">595. Big Countries</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./617. Merge Two Binary Trees.html" class="">617. Merge Two Binary Trees</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./620. Not Boring Movies.html" class="">620. Not Boring Movies</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./627. Swap Salary.html" class="">627. Swap Salary</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./657. Judge Route Circle.html" class="">657. Judge Route Circle</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./728. Self Dividing Numbers.html" class="">728. Self Dividing Numbers</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./771. Jewels and Stones.html" class="">771. Jewels and Stones</a>
+                </li>
+            
+
+            
+        
+            
+            
+            
+            
+
+            
+                <li class="level_1 file">
+                    <a href="./README.html" class="">leetcode</a>
+                </li>
+            
+
+            
+        
+        </ul>
+    </div>
+
+    <div id="main">
+        <div class="content_body">
+            <h1 class="title"> 561. Array Partition I </h1>
+            <div class="doc_post"> <h2 id="toc_0">1.</h2>
+<div class="codehilite code_lang_python  highlight"><pre><span></span><span class="k">def</span> <span class="nf">arrayPairSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span><span class="err">Ï</span>
+    <span class="n">nums</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="n">nums</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">nums</span> <span class="o">!=</span><span class="p">[]:</span>
+        <span class="nb">sum</span> <span class="o">+=</span> <span class="n">nums</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="n">nums</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="k">return</span> <span class="nb">sum</span>
+</pre></div>
+
+<!--block_code_end-->
+<h2 id="toc_1">2. one line</h2>
+<div class="codehilite code_lang_python  highlight"><pre><span></span><span class="k">def</span> <span class="nf">arrayPairSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">nums</span><span class="p">)[::</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+
+<!--block_code_end-->
+<h1 id="toc_2"><strong>Python&#39;s slice notation</strong></h1>
+
+<pre><code>&gt;&gt;&gt; seq[:]                # [seq[0],   seq[1],          ..., seq[-1]    ]
+&gt;&gt;&gt; seq[low:]             # [seq[low], seq[low+1],      ..., seq[-1]    ]
+&gt;&gt;&gt; seq[:high]            # [seq[0],   seq[1],          ..., seq[high-1]]
+&gt;&gt;&gt; seq[low:high]         # [seq[low], seq[low+1],      ..., seq[high-1]]
+&gt;&gt;&gt; seq[::stride]         # [seq[0],   seq[stride],     ..., seq[-1]    ]
+&gt;&gt;&gt; seq[low::stride]      # [seq[low], seq[low+stride], ..., seq[-1]    ]
+&gt;&gt;&gt; seq[:high:stride]     # [seq[0],   seq[stride],     ..., seq[high-1]]
+&gt;&gt;&gt; seq[low:high:stride] </code></pre>
+
+<!--block_code_end-->
+<p class="md_block">
+    <span class="md_line">Of course, if (high-low)%stride != 0, then the end point will be a little lower than high-1.<br /></span>
+    <span class="md_line">If stride is negative, the ordering is changed a bit since we&#39;re counting down:</span>
+</p>
+
+
+<pre><code>&gt;&gt;&gt; seq[::-stride]        # [seq[-1],   seq[-1-stride],   ..., seq[0]    ]
+&gt;&gt;&gt; seq[high::-stride]    # [seq[high], seq[high-stride], ..., seq[0]    ]
+&gt;&gt;&gt; seq[:low:-stride]     # [seq[-1],   seq[-1-stride],   ..., seq[low+1]]
+&gt;&gt;&gt; seq[high:low:-stride] # [seq[high], seq[high-stride], ..., seq[low+1]]</code></pre>
+
+<!--block_code_end--> </div>
+        </div>
+
+    </div>
+
+
+
+
+
+<script>
+    // auto focus for menu
+    window.onload = function(){
+        var sidebar = document.getElementById('sidebar');
+        var current = document.getElementsByClassName('selected')[0];
+        if (current && sidebar){
+            sidebar.scrollTop = current.offsetTop - sidebar.clientHeight/2 + 100
+        }
+    };
+</script>
+
+
+
+
+</body>
+
+</html>
